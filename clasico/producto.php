@@ -9,11 +9,11 @@ function getData() {
         {"slug": "electrohogar", "nombre": "Electrohogar"}
       ],
       "productos": [
-        {"id": 1, "nombre": "Mueble Cocina Blanco", "precio": 799.99, "categoria_slug": "cocinas", "descripcion": "Cocina modular con acabado blanco mate."},
-        {"id": 2, "nombre": "Encimera Granito", "precio": 299.00, "categoria_slug": "cocinas", "descripcion": "Encimera resistente de granito natural."},
-        {"id": 3, "nombre": "Lavabo Suspendido", "precio": 159.50, "categoria_slug": "banos", "descripcion": "Lavabo con instalación suspendida y sifón oculto."},
-        {"id": 4, "nombre": "Mampara Ducha 120", "precio": 220.00, "categoria_slug": "banos", "descripcion": "Mampara corredera templada 6mm."},
-        {"id": 5, "nombre": "Lavadora 8kg A+++", "precio": 399.90, "categoria_slug": "electrohogar", "descripcion": "Lavadora eficiente con 15 programas."}
+        {"id": 1, "nombre": "Mueble Cocina Blanco", "precio": 799.99, "categoria_slug": "cocinas", "descripcion": "Cocina modular con acabado blanco mate." , "img": "https://img.global.news.samsung.com/co/wp-content/uploads/2022/03/AddWash4-1.jpg"},
+        {"id": 2, "nombre": "Encimera Granito", "precio": 299.00, "categoria_slug": "cocinas", "descripcion": "Encimera resistente de granito natural." , "img": "https://img.global.news.samsung.com/co/wp-content/uploads/2022/03/AddWash4-1.jpg"},
+        {"id": 3, "nombre": "Lavabo Suspendido", "precio": 159.50, "categoria_slug": "banos", "descripcion": "Lavabo con instalación suspendida y sifón oculto." , "img": "https://img.global.news.samsung.com/co/wp-content/uploads/2022/03/AddWash4-1.jpg"},
+        {"id": 4, "nombre": "Mampara Ducha 120", "precio": 220.00, "categoria_slug": "banos", "descripcion": "Mampara corredera templada 6mm." , "img": "https://img.global.news.samsung.com/co/wp-content/uploads/2022/03/AddWash4-1.jpg"},
+        {"id": 5, "nombre": "Lavadora 8kg A+++", "precio": 399.90, "categoria_slug": "electrohogar", "descripcion": "Lavadora eficiente con 15 programas." , "img": "https://img.global.news.samsung.com/co/wp-content/uploads/2022/03/AddWash4-1.jpg"}
       ]
     }';
     return json_decode($json, true);
@@ -56,6 +56,8 @@ header('Content-Type: text/html; charset=utf-8');
     <p>El producto solicitado no existe.</p>
   <?php else: ?>
     <h1><?php echo htmlspecialchars($producto['nombre']); ?></h1>
+
+    <p> <img src= "<?php echo $producto["img"]; ?>"></img> </p>
     <p><strong>Precio:</strong> <?php echo number_format($producto['precio'], 2, ',', '.'); ?> €</p>
     <p><strong>Categoría:</strong>
       <a href="categoria.php?slug=<?php echo urlencode($producto['categoria_slug']); ?>">
